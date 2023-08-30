@@ -13,10 +13,13 @@
             <div>
               <md-table v-model="dataTable" table-header-color="green">
                 <md-table-row slot="md-table-row" slot-scope="{ item }">
-                  <md-table-cell md-label="Tên đơn hàng">{{ item.name ? item.name : '---' }}</md-table-cell>
-                  <md-table-cell md-label="SĐT">{{ item.phone ? item.phone : '---' }}</md-table-cell>
-                  <md-table-cell md-label="Email">{{ item.email ? item.email : '---' }} </md-table-cell>
-                  <md-table-cell md-label="Ghi chú">{{ item.description ? item.description : '---' }}</md-table-cell>
+                  <md-table-cell md-label="Tên sản phẩm">{{ item.product ? item.product.name : '---' }}</md-table-cell>
+                  <md-table-cell md-label="Số lượng">1</md-table-cell>
+                  <md-table-cell md-label="Danh mục">{{ item.product.category.name }}</md-table-cell>
+                  <md-table-cell md-label="Nhà cung cấp">{{ item.product.supplier.name }}</md-table-cell>
+                  <md-table-cell md-label="Giá bán">{{ item.product.price }}</md-table-cell>
+                  <md-table-cell md-label="Giảm giá">{{ item.product.discountPercent }}</md-table-cell>
+                  <md-table-cell md-label="Ảnh"><img :src="item.product.images[0].url" style="width: 50px;height: 50px;" alt=""></md-table-cell>
                   <!-- <md-table-cell md-label="Thao tác">
                     <md-button @click="$router.push(`/supplier/edit/${item.supplierId}`)" class="md-dense md-fab-top-right md-success"><md-icon>edit</md-icon>Sửa</md-button>
                     <md-button @click="deleteItem(item.supplierId)" class="md-dense md-fab-top-right md-danger"><md-icon>delete</md-icon>Xóa</md-button>
@@ -72,7 +75,7 @@ export default {
       axios.get(url)
         .then(response => {
           console.log('Dữ liệu:', response.data);
-          this.dataTable = response.data.data
+          this.dataTable = response.data
           this.total = response.data.totalItems
         })
         .catch(error => {

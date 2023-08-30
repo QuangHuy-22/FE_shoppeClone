@@ -23,6 +23,10 @@
         <md-icon>library_books</md-icon>
         <p>Nhà cung cấp</p>
       </sidebar-link>
+      <sidebar-link to="/order">
+        <md-icon>library_books</md-icon>
+        <p>Quản lý đơn hàng</p>
+      </sidebar-link>
       <sidebar-link to="/address">
         <md-icon>library_books</md-icon>
         <p>Địa chỉ</p>

@@ -27,6 +27,8 @@ import AddressList from "@/pages/Address/index.vue";
 import AddressRequest from "@/pages/Address/request.vue";
 //Shoppe
 import ShoppeList from "@/pages/Shopee/shopee.vue";
+//ỎderProduct
+import Order from "@/pages/Order/index.vue";
 
 
 import Typography from "@/pages/Typography.vue";
@@ -183,6 +185,11 @@ const routes = [
         path: "/address/edit/:id",
         name: "Sửa sản phẩm",
         component: AddressRequest,
+      },
+      {
+        path: "/order",
+        name: "Đơn hàng",
+        component: Order,
       },
     ],
   },
